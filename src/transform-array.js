@@ -4,7 +4,7 @@ module.exports = function transform(arr) {
   let result = [];
   
   if(!Array.isArray(array))   {
-       throw new Error();  
+       throw new Error();    
       }
   if(array.length == 0)       { 
       return [];                     

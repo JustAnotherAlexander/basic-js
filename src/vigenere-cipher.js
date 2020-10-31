@@ -33,14 +33,6 @@ const array = [
 
 class VigenereCipheringMachine {
 
-  constructor(tf){
-    if(tf != true && tf != undefined){
-       this.mod = 'reverse';
-    }
-    else{
-      this.mod = 'direct';
-    }
-  }
 
   encrypt(message, key) {
 
@@ -129,8 +121,6 @@ i=0;
 
 
   decrypt(encryptedMessage, key) {
-    console.log('encryptedMessage: '+encryptedMessage);
-    console.log('key: ' + key);
     if(encryptedMessage == undefined || key == undefined){
       throw new Error();
     }
@@ -149,7 +139,6 @@ i=0;
     }
 
     let decryptedMessage = [];
-console.log('decryptor in decryption cicle: '+decryptor)
 
 for (let i=0; i<=encryptedMessage.length; i++) {
   if (encryptedMessage.length==0) {
@@ -212,13 +201,10 @@ i=0;
   }
 
   let row_index = basic_array.indexOf(decryptor[i]);
-  console.log("row_index: " + row_index);
   let column_index = array[row_index].indexOf(encryptedMessage[i]);
-  console.log("column_index: " + column_index);
   decryptor.splice(i,1);
   decryptedMessage.push(basic_array[column_index]);
   encryptedMessage.splice(i,1);
-console.log("decrypted Message: " + decryptedMessage);
 }
 
 return decryptedMessage.join('');
